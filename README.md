@@ -1,3 +1,0 @@
-# ISII-20151-YORDANCH
-dibujo en la web - unajma 2015-1
-RECIBIDOS CASOS DE USO
