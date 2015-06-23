@@ -1,0 +1,5 @@
+REQUERIMIENTOS Y CASOS DE USO
+---------------------------------------------
+- revisa la teoría de requerimientos, no tienes bien claro lo que son requerimientos funcionales y diferenciarlos de los no funcionales
+- en la descripción de los casos de uso, hay que describir más la secuencia que las capacidades. Revisar teoría de casos de uso
+LEE EL LIBRO!
