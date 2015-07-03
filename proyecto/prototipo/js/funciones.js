@@ -4,18 +4,22 @@ function inicio() {
 	drawW={
 		color: "#000",
 		forma: {
-			circuloR: 1,
+			circuloR: document.getElementById('tamVal').value,
 			rectangulo: [4,4,1,5]
 		},
 		borrador: {
 			estado: false,
 			tam: 20
-		}
+		},
+		posicionX: 10,
+		posicionY: 10
 	}
 	dubujoCamenzar();
 	window.onresize=Tamanio;
 	var colorC=document.getElementById('col');
+	var tamV=document.getElementById('tamVal');
 	colorC.addEventListener("change",cargarCol,false);
+	tamV.addEventListener("change",cargarTamanio,false);
 }
 function dibujarCanvas(){
 	var canvas=document.createElement('canvas');
@@ -38,41 +42,41 @@ function dibujarOb(e){
 	if(drawW.borrador.estado){
 		if(document.getElementById('eracerFun')){
 			var nodo=document.getElementById('eracerFun');
-			var px=e.layerX-10;
-			var py=e.layerY-5;
-			nodo.style.left=px+"px";
-			nodo.style.top=py+"px";
-			contexto.clearRect(px-10,py,drawW.borrador.tam,drawW.borrador.tam);
+			drawW.posicionX=e.layerX-10;
+			drawW.posicionY=e.layerY-5;
+			nodo.style.left=drawW.posicionX+"px";
+			nodo.style.top=drawW.posicionY+"px";
+			contexto.clearRect(drawW.posicionX-10,drawW.posicionY,drawW.borrador.tam,drawW.borrador.tam);
 		}
 	}else{
 		contexto.beginPath();
 		contexto.fillStyle = drawW.color;
 		//var px=e.layerX-110;
 		//var py=e.layerY-55;
-		var px=e.layerX-10;
-		var py=e.layerY-5;
+		drawW.posicionX=e.layerX-10;
+		drawW.posicionY=e.layerY-5;
 		var _radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 		var _posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 		var _posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		contexto.arc(px + _posX, py + _posY, _radio, 0, Math.PI * 2);
+		contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
 		contexto.fill();
 		contexto.beginPath();
 		_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 		_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 		_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
-		contexto.arc(px + _posX, py + _posY, _radio, 0, Math.PI * 2);
+		contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
 		contexto.fill();
 		contexto.beginPath();
 		_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 		_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 		_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
-		contexto.arc(px + _posX, py + _posY, _radio, 0, Math.PI * 2);
+		contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
 		contexto.fill();
 		contexto.beginPath();
 		_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 		_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 		_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
-		contexto.arc(px + _posX, py + _posY, _radio, 0, Math.PI * 2);
+		contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
 		contexto.fill();
 	}
 }
@@ -81,8 +85,6 @@ function eventos(){
 }
 function clickMouse(e){
 	canvas.addEventListener("mousemove", moverMouse);
-	//console.log(e.layerX+" --- "+ e.layerY);
-	//document.addEventListener("mousemove", moverMouse);
 	document.addEventListener("mouseup", elimEv);
 }
 function moverMouse(e){
@@ -110,6 +112,20 @@ function cargarCol(){
 	var etiquetaCol=document.getElementById('color');
 	drawW.color=this.value;
 	etiquetaCol.style.background=drawW.color;
+}
+function cargarTamanio(){
+	drawW.forma.circuloR=this.value;
+	if(drawW.borrador.estado){
+		drawW.borrador.tam=Math.round(this.value*1)+20;
+		var nodo=document.getElementById('eracerFun');
+		nodo.style.height=drawW.borrador.tam+"px";
+		nodo.style.width=drawW.borrador.tam+"px";
+		//console.log(Math.round(this.value*1)+20);
+	}
+	//this.addEventListener("mousemove",function(e){
+		//document.getElementById('color').innerHTML=this.value;
+	//});
+	//document.getElementById('color').innerHTML=this.value;
 }
 function newCanvasL(){
 	canvas.width=canvas.width;
@@ -144,5 +160,5 @@ function cursorC(){
 	}
 }
 function lapizC(){
-    drawW.borrador.estado=false;
+	drawW.borrador.estado=false;
 }

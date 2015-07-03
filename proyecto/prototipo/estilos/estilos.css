@@ -100,14 +100,29 @@ canvas{
 }
 #materiales>#herramientasDis>#color{
 	width: 80%;
+	height: 30px;
 	margin: auto;
+	border-radius: 5px;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,.3);
 }
-#materiales>#color>#col{
+#materiales>#herramientasDis>#color>#col{
 	border: 0;
 	opacity: 0;
 	width: 100%;
 	height: 100%;
 	cursor: pointer;
+}
+#materiales>#herramientasDis>#tamanio{
+	width: 80%;
+	position: relative;
+	margin: auto;
+	padding: 15px 0;
+	padding-bottom: 0;
+}
+#materiales>#herramientasDis>#tamanio>#tamVal{
+	width: 100%;
+	cursor: pointer;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,.3);
 }
 #barraPrincipal>ul>li{
 	display: inline-block;
