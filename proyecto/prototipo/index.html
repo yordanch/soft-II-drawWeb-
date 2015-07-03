@@ -32,16 +32,22 @@
 			<aside id="materiales">
 				<div>materiales</div>
 				<ul>
-					<li id="Cursor">1</li>
-					<li id="Lapiz">2</li>
+					<li id="Cursor" onclick="cursorC()">1</li>
+					<li id="Lapiz" onclick="lapizC()">2</li>
 					<li id="Texto">3</li>
 					<li id="Circulo">4</li>
 					<li id="Cuadrado">5</li>
+					<li id="eracer" onclick="borradorC()">8</li>
 					<li id="Bezier">6</li>
 					<li id="Imagen">7</li>
 				</ul>
-				<div id="color">
-					<input type="color" id="col" name="col">
+				<div id="herramientasDis">
+					<div id="color">
+						<input type="color" id="col" name="col">
+					</div>
+					<div id="tamanio">
+						<input type="range" value="5" min="0.5" max="40" step=".5" id="tamVal">
+					</div>
 				</div>
 			</aside>
 			<div id="canvasImprim"></div>

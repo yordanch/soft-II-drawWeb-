@@ -60,6 +60,7 @@ canvas{
 	width: 70%;
 	padding: 0 1%;
 	box-sizing: border-box;
+	position: relative;
 }
 #materiales{
 	position: relative;
@@ -85,18 +86,21 @@ canvas{
 	text-align: center;
 	cursor: pointer;
 }
-#materiales>#color{
+#materiales>#herramientasDis{
 	margin: 10px 0;
 	box-sizing: border-box;
-	background: blue;
-	width: 50%;
-	height: 25px;
+	background: #eee;
+	width: 100%;
 	position: absolute;
 	overflow: hidden;
 	border-radius: 5px;
-	box-shadow: 0 0 3px 3px rgba(255,255,255,.5);
-	left: 24px;
+	left: 0;
 	cursor: pointer;
+	padding: 10px 0;
+}
+#materiales>#herramientasDis>#color{
+	width: 80%;
+	margin: auto;
 }
 #materiales>#color>#col{
 	border: 0;
@@ -114,6 +118,13 @@ canvas{
 	margin: 5px 2px;
 	border-radius: 50%;
 	cursor: pointer;
+}
+#eracerFun{
+	background: rgba(0,0,0,.5);
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	box-shadow: 0 0 3px 3px rgba(0,0,0,.4);
 }
 .clear{
 	clear: both;
