@@ -1,8 +1,6 @@
 window.onload=inicio;
 function inicio() {
 	dibujarCanvas();
-	dubujoCamenzar();
-	window.onresize=Tamanio;
 	drawW={
 		color: "#000",
 		forma: {
@@ -10,6 +8,8 @@ function inicio() {
 			recta: [4,4,1,5]
 		}
 	}
+	dubujoCamenzar();
+	window.onresize=Tamanio;
 	var colorC=document.getElementById('col');
 	colorC.addEventListener("change",cargarCol,false);
 }
@@ -24,12 +24,7 @@ function dubujoCamenzar(){
 	Tamanio();
 	if(canvas.getContext){
 		contexto=canvas.getContext("2d");
-		contexto.fillStyle="red";
-		contexto.strokeStyle="blue";
-		contexto.strokeRect(50,50,100,100);
-		contexto.fillRect(50,50,50,50);
-		contexto.stroke();
-		console.log("dibujando");
+		document.getElementById('color').style.background=drawW.color;
 	}else{
 		alert("Disculpe por las molestias, pero no puedes dibujar, necesitas el navegador actualizado");
 	}
@@ -43,7 +38,7 @@ function dibujarOb(e){
 	var _posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 	var _posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
 
-	contexto.arc(e.layerX + _posX, e.layerY + _posY - 20, _radio, 0, Math.PI * 2);
+	contexto.arc(e.layerX + _posX, e.layerY + _posY, _radio, 0, Math.PI * 2);
 	contexto.fill();
 }
 function eventos(){
@@ -51,6 +46,7 @@ function eventos(){
 }
 function clickMouse(e){
 	canvas.addEventListener("mousemove", moverMouse);
+	//document.addEventListener("mousemove", moverMouse);
 	document.addEventListener("mouseup", elimEv);
 }
 function moverMouse(e){
@@ -72,7 +68,7 @@ function Tamanio(){
 	}else{
 		canvas.height=450;
 	}
-	console.log(CampoDibujo.offsetHeight - bE.offsetHeight-20);
+	//console.log(CampoDibujo.offsetHeight - bE.offsetHeight-20);
 }
 function cargarCol(){
 	var etiquetaCol=document.getElementById('color');
