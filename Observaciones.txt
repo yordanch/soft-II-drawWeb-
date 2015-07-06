@@ -1,5 +1,11 @@
 REQUERIMIENTOS Y CASOS DE USO
 ---------------------------------------------
-- revisa la teor�a de requerimientos, no tienes bien claro lo que son requerimientos funcionales y diferenciarlos de los no funcionales
-- en la descripci�n de los casos de uso, hay que describir m�s la secuencia que las capacidades. Revisar teor�a de casos de uso
+- revisa la teoría de requerimientos, no tienes bien claro lo que son requerimientos funcionales y diferenciarlos de los no funcionales
+- en la descripción de los casos de uso, hay que describir más la secuencia que las capacidades. Revisar teoría de casos de uso
 LEE EL LIBRO!
+
+OBSERVACIONES SEGUNDA ENTREGA
+-------------------------------------
+- Muy bien, pero curiosamente tus estadisticas muestran que has elminiado más lineas de las que has agregado, osea que tu proyeto se está reduciendo NO ES NORMAL VERDAD?
+- Si quieres hacer pruebas hazlas en un branch y cuando este ok, recien le haces merge a tu master (si quieres tambien puedes hacer pull de las ramas para ver como trabajas)
+SIGUE ADELANTE
