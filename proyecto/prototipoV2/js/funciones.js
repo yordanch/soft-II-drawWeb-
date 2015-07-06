@@ -52,7 +52,6 @@ function dibujarOb(e){
 			drawW.posicionY=e.layerY-5;
 			nodo.style.left=drawW.posicionX+"px";
 			nodo.style.top=drawW.posicionY+"px";
-			//contexto.clearRect(drawW.posicionX-10,drawW.posicionY,drawW.borrador.tam,drawW.borrador.tam);
 			contexto.fillStyle="#eee";
 			contexto.fillRect(drawW.posicionX-10,drawW.posicionY,drawW.borrador.tam,drawW.borrador.tam);
 		}
@@ -137,7 +136,6 @@ function Tamanio(){
 	}else{
 		canvas.height=450;
 	}
-	//console.log(CampoDibujo.offsetHeight - bE.offsetHeight-20);
 }
 function cargarCol(){
 	var etiquetaCol=document.getElementById('color');
@@ -151,16 +149,14 @@ function cargarTamanio(){
 		var nodo=document.getElementById('eracerFun');
 		nodo.style.height=drawW.borrador.tam+"px";
 		nodo.style.width=drawW.borrador.tam+"px";
-		//console.log(Math.round(this.value*1)+20);
 	}
-	//this.addEventListener("mousemove",function(e){
-		//document.getElementById('color').innerHTML=this.value;
-	//});
-	//document.getElementById('color').innerHTML=this.value;
 }
 function newCanvasL(){
 	canvas.width=canvas.width;
 	canvas.height=canvas.height;
+	contexto.fillStyle="#eee";
+	contexto.fillRect(0,0,canvas.width,canvas.height);
+	document.getElementById('color').style.background=drawW.color;
 }
 function borradorC(){
 	if(drawW.borrador.estado){
@@ -192,6 +188,15 @@ function cursorC(){
 }
 function lapizC(){
 	drawW.borrador.estado=false;
+	flotante('show');
+}
+function opcionesLapiz(opcion){
+	drawW.forma.tipo=opcion;
+	document.getElementById('opcionesLapiz').style.background.opacity=0;
+	flotante('hidden');
+}
+function flotante(opcion){
+	document.getElementById('flotante').className=opcion;
 }
 function guardarTrab(){
 	var data = canvas.toDataURL('image/png');
