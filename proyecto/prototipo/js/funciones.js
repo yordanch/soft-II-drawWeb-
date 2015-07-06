@@ -4,8 +4,12 @@ function inicio() {
 	drawW={
 		color: "#000",
 		forma: {
+			estado: false,
 			circuloR: document.getElementById('tamVal').value,
-			rectangulo: [4,4,1,5]
+			rectangulo: [4,4,1,5],
+			tipo: "lineas", //lineas,circulos
+			posicionAnX: 0,
+			posicionAnY: 0
 		},
 		borrador: {
 			estado: false,
@@ -32,6 +36,8 @@ function dubujoCamenzar(){
 	Tamanio();
 	if(canvas.getContext){
 		contexto=canvas.getContext("2d");
+		contexto.fillStyle="#eee";
+		contexto.fillRect(0,0,canvas.width,canvas.height);
 		document.getElementById('color').style.background=drawW.color;
 	}else{
 		alert("Disculpe por las molestias, pero no puedes dibujar, necesitas el navegador actualizado");
@@ -46,39 +52,63 @@ function dibujarOb(e){
 			drawW.posicionY=e.layerY-5;
 			nodo.style.left=drawW.posicionX+"px";
 			nodo.style.top=drawW.posicionY+"px";
-			contexto.clearRect(drawW.posicionX-10,drawW.posicionY,drawW.borrador.tam,drawW.borrador.tam);
+			//contexto.clearRect(drawW.posicionX-10,drawW.posicionY,drawW.borrador.tam,drawW.borrador.tam);
+			contexto.fillStyle="#eee";
+			contexto.fillRect(drawW.posicionX-10,drawW.posicionY,drawW.borrador.tam,drawW.borrador.tam);
 		}
 	}else{
-		contexto.beginPath();
-		contexto.fillStyle = drawW.color;
-		//var px=e.layerX-110;
-		//var py=e.layerY-55;
-		drawW.posicionX=e.layerX-10;
-		drawW.posicionY=e.layerY-5;
-		var _radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		var _posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		var _posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
-		contexto.fill();
-		contexto.beginPath();
-		_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
-		contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
-		contexto.fill();
-		contexto.beginPath();
-		_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
-		contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
-		contexto.fill();
-		contexto.beginPath();
-		_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
-		_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
-		contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
-		contexto.fill();
+		switch(drawW.forma.tipo){
+			case "lineas": dibujoConLines(e); break;
+			case "circulos": dibujoConCircles(e);break;
+		}
 	}
+}
+function dibujoConLines(e){
+	if(drawW.forma.estado){
+		contexto.beginPath();
+		contexto.strokeStyle = drawW.color;
+		contexto.lineWidth = drawW.forma.circuloR;
+		contexto.lineJoin = 'round';
+		contexto.moveTo(drawW.forma.posicionAnX, drawW.forma.posicionAnY);
+		contexto.lineTo((e.layerX)*1 - 8, (e.layerY)*1);
+		contexto.closePath();
+		contexto.stroke();
+		drawW.forma.posicionAnX=(e.layerX)*1 - 8;
+		drawW.forma.posicionAnY=(e.layerY)*1;
+	}else{
+		drawW.forma.posicionAnX=e.layerX;
+		drawW.forma.posicionAnY=e.layerY;
+		drawW.forma.estado=true;
+	}
+}
+function dibujoConCircles(e){
+	contexto.beginPath();
+	contexto.fillStyle = drawW.color;
+	drawW.posicionX=e.layerX-10;
+	drawW.posicionY=e.layerY-5;
+	var _radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	var _posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	var _posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
+	contexto.fill();
+	contexto.beginPath();
+	_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
+	contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
+	contexto.fill();
+	contexto.beginPath();
+	_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
+	contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
+	contexto.fill();
+	contexto.beginPath();
+	_radio = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	_posX = 1 + Math.ceil(Math.random() * drawW.forma.circuloR);
+	_posY = 1 + Math.ceil(Math.random() * drawW.forma.circuloR)
+	contexto.arc(drawW.posicionX + _posX, drawW.posicionY + _posY, _radio, 0, Math.PI * 2);
+	contexto.fill();
 }
 function eventos(){
 	canvas.addEventListener("mousedown", clickMouse);
@@ -92,6 +122,7 @@ function moverMouse(e){
 }
 function elimEv(){
 	canvas.removeEventListener("mousemove", moverMouse);
+	drawW.forma.estado=false;
 }
 function Tamanio(){
 	var mat=document.getElementById('materiales');
@@ -161,4 +192,16 @@ function cursorC(){
 }
 function lapizC(){
 	drawW.borrador.estado=false;
+}
+function guardarTrab(){
+	var data = canvas.toDataURL('image/png');
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+	  if (xhr.readyState == 4) {
+		window.open('save/snd-yvv/'+xhr.responseText,'_blank');
+	  }
+	}
+	xhr.open('POST','php/saveImage.php',true);
+	xhr.setRequestHeader('Content-Type', 'application/upload');
+	xhr.send(data);
 }
