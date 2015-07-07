@@ -5,7 +5,7 @@ function inicio() {
 		color: "#000",
 		forma: {
 			estado: false,
-			circuloR: document.getElementById('tamVal').value,
+			circuloR: 1,
 			rectangulo: [4,4,1,5],
 			tipo: "lineas", //lineas,circulos
 			posicionAnX: 0,
@@ -18,18 +18,23 @@ function inicio() {
 		posicionX: 10,
 		posicionY: 10
 	}
-	dubujoCamenzar();
-	window.onresize=Tamanio;
-	var colorC=document.getElementById('col');
-	var tamV=document.getElementById('tamVal');
-	colorC.addEventListener("change",cargarCol,false);
-	tamV.addEventListener("change",cargarTamanio,false);
+	if(document.getElementById('campoDraw')){
+		drawW.forma.circuloR=document.getElementById('tamVal').value;
+		dubujoCamenzar();
+		window.onresize=Tamanio;
+		var colorC=document.getElementById('col');
+		var tamV=document.getElementById('tamVal');
+		colorC.addEventListener("change",cargarCol,false);
+		tamV.addEventListener("change",cargarTamanio,false);
+	}
 }
 function dibujarCanvas(){
 	var canvas=document.createElement('canvas');
-	var campo=document.getElementById('canvasImprim');
-	canvas.id="dibujito";
-	campo.appendChild(canvas);
+	if(document.getElementById('canvasImprim')){
+		var campo=document.getElementById('canvasImprim');
+		canvas.id="dibujito";
+		campo.appendChild(canvas);
+	}
 }
 function dubujoCamenzar(){
 	canvas=document.getElementById("dibujito");
@@ -141,6 +146,7 @@ function cargarCol(){
 	var etiquetaCol=document.getElementById('color');
 	drawW.color=this.value;
 	etiquetaCol.style.background=drawW.color;
+	coloreschange(drawW.color);
 }
 function cargarTamanio(){
 	drawW.forma.circuloR=this.value;
@@ -198,15 +204,79 @@ function opcionesLapiz(opcion){
 function flotante(opcion){
 	document.getElementById('flotante').className=opcion;
 }
+function rutaAvance(ruta){
+	console.log(ruta);
+}
+function coloreschange(color){
+	var cont=document.getElementById('colores');
+	var lista=false;
+	var tag=false;
+	if(document.getElementsByClassName('color')){
+		lista=document.getElementsByClassName('color');
+	}
+	if(document.getElementById(color)){
+		document.getElementById(color).remove();
+	}
+	if(lista.length<30 && lista){
+		//<li onclick="" id="#ffff" class="color"></li>
+		tag=document.createElement('li');
+		tag.style.background=color;
+		tag.onclick=function(e){
+			drawW.color=e.originalTarget.id;
+		};
+		tag.id=color;
+		tag.className="color";
+		cont.appendChild(tag);
+	}else{
+		if(!lista){
+			//<li onclick="" id="#ffff" class="color"></li>
+			tag=document.createElement('li');
+			tag.style.background=color;
+			tag.onclick=function(e){
+				drawW.color=e.originalTarget.id;
+			};
+			tag.id=color;
+			tag.className="color";
+			cont.appendChild(tag);
+		}
+		else if(lista.length==30){
+			var variable=Math.round(Math.random()*29);
+			lista[variable].style.background=color;
+			lista.onclick=function(e){
+				drawW.color=e.originalTarget.id;
+			};
+		}
+	}
+}
 function guardarTrab(){
 	var data = canvas.toDataURL('image/png');
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 	  if (xhr.readyState == 4) {
-		window.open('save/snd-yvv/'+xhr.responseText,'_blank');
+		//window.open('save/snd-yvv/'+xhr.responseText,'_blank');
 	  }
 	}
 	xhr.open('POST','php/saveImage.php',true);
 	xhr.setRequestHeader('Content-Type', 'application/upload');
 	xhr.send(data);
 }
+function mostrarImagen(e){
+	var urlI=e.src;
+	var im=document.createElement('img');
+	var nodo=document.createElement('div');
+	nodo.id="ventanaImG";
+	im.src=urlI;
+	im.onclick=hiddenImagen;
+	im.id="imagenShow";
+	document.getElementById('flotante').appendChild(nodo);
+	nodo.appendChild(im);
+	console.log(nodo);
+	flotante('show');
+}
+function hiddenImagen(){
+	flotante('hidden');
+	window.setTimeout(function(){
+		document.getElementById('flotante').innerHTML="";
+	},1000);
+}
+function openFolder(){}
