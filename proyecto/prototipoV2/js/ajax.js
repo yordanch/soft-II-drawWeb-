@@ -25,7 +25,7 @@ function Cargar(_pagina,capa) {
     ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     ajax.onreadystatechange=function(){
     	if(ajax.readyState>=0 && ajax.readyState<=3){
-           document.getElementById(capa).innerHTML='<div class="espere"><span></span></div>';
+			document.getElementById(capa).innerHTML='<div class="espere"><span></span></div>';
     	}
 		else if(ajax.readyState==4){
            document.getElementById(capa).innerHTML=ajax.responseText;

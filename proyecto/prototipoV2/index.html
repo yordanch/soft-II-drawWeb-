@@ -5,13 +5,15 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="estilos/estilos.css">
 	<link rel="icon" href="imagenes/logos/logo.png">
+	<script src="js/ajax.js"></script>
 	<script src="js/funciones.js"></script>
+	<script src="js/indexH.js"></script>
 </head>
 <body>
 	<section id="CampoDibujo">
 		<header id="barraPrincipal">
 			<ul>
-				<li id="logeo"></li>
+				<li id="logeo" onclick="ingresarSaUser()"></li>
 				<li id="cerrarSecion"></li>
 				<li id="nuevoU"></li>
 				<li id="img"></li>
@@ -60,11 +62,6 @@
 			</div>
 		</div>
 	</section>
-	<div id="flotante" class="hidden">
-		<div id="opcionesLapiz">
-			<li id="circuloSe" onclick="opcionesLapiz('circulos')"></li>
-			<li id="lineSe" onclick="opcionesLapiz('lineas')"></li>
-		</div>
-	</div>
+	<div id="flotante" class="hidden"></div>
 </body>
 </html>
