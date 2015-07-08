@@ -307,6 +307,73 @@ canvas{
 	-ms-transition: all .5s;
 	transition: all .5s;
 }
+#formularioLog{
+	background: rgb(201, 201, 201);
+	width: 500px;
+	height: 300px;
+	position: absolute;
+	margin: auto;
+	z-index: 999999;
+	top: 20%;
+	left: 30%;
+	box-sizing: border-box;
+	padding: 45px;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-ms-transition: all .5s;
+	transition: all .5s;
+	box-shadow: 0 0 5px rgba(0,0,0,.4);
+}
+#formularioLog>ul>li{
+	list-style: none;
+	padding: 5px;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	font-family: arial;
+	text-align: center;
+}
+#formularioLog>ul>li>input{
+	padding: 5px 8px;
+	border: 0;
+	outline: none;
+	border-radius: 5px;
+	width: 300px;
+	text-align: center;
+	font-size: 1.2em;
+	box-shadow: 0 0 3px rgba(0,0,0,.5);
+	color: rgba(52, 60, 69,.5);
+}
+#formularioLog>ul>li>a{
+	color: rgba(52, 60, 69,.5);
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-ms-transition: all .5s;
+	transition: all .5s;
+}
+#formularioLog>ul>li>a:hover{
+	color: rgba(52, 60, 69,.7);
+}
+#formularioLog>ul>li>button{
+	border: 0;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 1.3em;
+	color: rgba(52, 60, 69,.5);
+	box-shadow: 0 0 3px rgba(0,0,0,.5);
+	cursor: pointer;
+}
+#closeForm{
+	position: absolute;
+	cursor: pointer;
+	background: rgb(201, 201, 190);
+	width: 25px;
+	height: 25px;
+	right: -10px;
+	top: -10px;
+	border: 2px solid rgb(192, 192, 192);
+	box-sizing: border-box;
+	border-radius: 50%;
+}
 #flotante>#opcionesLapiz{
 	background: rgb(201, 201, 201);
 	width: 300px;

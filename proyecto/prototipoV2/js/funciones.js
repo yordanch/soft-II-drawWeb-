@@ -194,12 +194,18 @@ function cursorC(){
 }
 function lapizC(){
 	drawW.borrador.estado=false;
+	var formG='<div id="opcionesLapiz"><li id="circuloSe" onclick="opcionesLapiz(\'circulos\')"></li><li id="lineSe" onclick="opcionesLapiz(\'lineas\')"></li></div>';
+	var tag=document.getElementById('flotante');
+	tag.innerHTML=formG;
 	flotante('show');
 }
 function opcionesLapiz(opcion){
 	drawW.forma.tipo=opcion;
 	document.getElementById('opcionesLapiz').style.background.opacity=0;
 	flotante('hidden');
+	setTimeout(function(){
+		limpiarFlotante();
+	},1000);
 }
 function flotante(opcion){
 	document.getElementById('flotante').className=opcion;
