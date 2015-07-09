@@ -286,3 +286,10 @@ function hiddenImagen(){
 	},1000);
 }
 function openFolder(){}
+function verTrab(){
+	var lienzo=document.getElementById('dibujito');
+	var data = lienzo.toDataURL('image/png');
+	var xhr = new XMLHttpRequest();
+	window.open(data,'_blank');
+	//console.log(data);
+}

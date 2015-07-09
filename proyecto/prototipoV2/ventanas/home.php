@@ -36,16 +36,16 @@
 			<div id="contenido">
 				<ul id="imagenesGaleria">
 					<li class="imagenesH fonlderImG" onclick="openFolder()">
-						<p class="nombreImagenG" style="top: 70px;text-align: center;color: rgb(245, 152, 41);text-shadow: 0 0 3px rgb(244, 181, 37);">mi carpeta 1</p>
-						<p class="fechaImagenG" style="text-align: center;font-size: 14px;">2015/15/15</p>
+						<p class="nombreImagenG" style="top: 70px;text-align: center;color: rgb(177, 105, 20);text-shadow: 0 0 3px rgb(244, 181, 37);">mi carpeta 1</p>
+						<p class="fechaImagenG" style="text-align: center;font-size: 14px;color:rgb(183, 219, 38);">2015/15/15</p>
 					</li>
 					<li class="imagenesH fonlderImG" onclick="openFolder()">
-						<p class="nombreImagenG"style="top: 70px;text-align: center;color: rgb(245, 152, 41);text-shadow: 0 0 3px rgb(244, 181, 37);">mi carpeta 2</p>
-						<p class="fechaImagenG" style="text-align: center;font-size: 14px;">2015/15/15</p>
+						<p class="nombreImagenG"style="top: 70px;text-align: center;color: rgb(177, 105, 20);text-shadow: 0 0 3px rgb(244, 181, 37);">mi carpeta 2</p>
+						<p class="fechaImagenG" style="text-align: center;font-size: 14px;color:rgb(183, 219, 38);">2015/15/15</p>
 					</li>
 					<li class="imagenesH fonlderImG" onclick="openFolder()">
-						<p class="nombreImagenG"style="top: 70px;text-align: center;color: rgb(245, 152, 41);text-shadow: 0 0 3px rgb(244, 181, 37);">mi carpeta 3</p>
-						<p class="fechaImagenG" style="text-align: center;font-size: 14px;">2015/15/15</p>
+						<p class="nombreImagenG"style="top: 70px;text-align: center;color: rgb(177, 105, 20);text-shadow: 0 0 3px rgb(244, 181, 37);">mi carpeta 3</p>
+						<p class="fechaImagenG" style="text-align: center;font-size: 14px;color:rgb(183, 219, 38);">2015/15/15</p>
 					</li>
 					<li class="imagenesH">
 						<img src="../../capturas/Captura%20v2.0.PNG" alt="" onclick="mostrarImagen(this)">

@@ -11,7 +11,7 @@ function cerrarForm(){
 	flotante('hidden');
 	setTimeout(function(){
 		limpiarFlotante();
-	},1000);
+	},500);
 }
 function limpiarFlotante(){
 	var tag=document.getElementById('flotante');

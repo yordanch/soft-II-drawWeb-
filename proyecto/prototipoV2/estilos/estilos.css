@@ -60,6 +60,9 @@ canvas{
 #barraHerramientas li:hover{
 	transform: scale(1.2);
 }
+#barraHerramientas li#ver{
+	background: url('../imagenes/logos/ver.png') 100% 100% / 100% 100% no-repeat;
+}
 #barraHerramientas li#Guardar{
 	background: url('../imagenes/logos/guardar.png') 100% 100% / 100% 100% no-repeat;
 }
@@ -77,7 +80,7 @@ canvas{
 	border-radius: 50%;
 }
 #barraHerramientas li#verHecho{
-	background: url('../imagenes/logos/abante.png') 100% 100% / 100% 100% no-repeat;
+	background: url('../imagenes/logos/album.png') 100% 100% / 100% 100% no-repeat;
 	background-color: rgb(238, 238, 238);
 	border-radius: 50%;
 }

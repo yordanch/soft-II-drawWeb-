@@ -53,8 +53,12 @@ header>ul{
   margin: 5px 10px;
 }
 #imagenesGaleria>.fonlderImG{
-  background: transparent url("../imagenes/logos/folder.png") no-repeat 100% 60% / 100% 120%;
+  background: transparent url("../imagenes/logos/folderAcc.png") no-repeat 100% 60% / 100% 120%;
   cursor: pointer;
+}
+#imagenesGaleria>.fonlderImG>.nombreImagenG,
+#imagenesGaleria>.fonlderImG>.fechaImagenG{
+  transform: rotateZ(15deg) skewX(28deg);
 }
 #imagenesGaleria>.imagenesH>p.nombreImagenG{
   position: absolute;
