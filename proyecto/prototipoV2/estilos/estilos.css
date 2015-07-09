@@ -308,14 +308,34 @@ canvas{
 	transition: all .5s;
 }
 #formularioLog{
-	background: rgb(201, 201, 201);
 	width: 500px;
 	height: 300px;
+	top: 20%;
+	left: 30%;
+}
+#formularioReg{
+	width: 500px;
+	height: 400px;
+	top: 20%;
+	left: 30%;
+}
+#formularioRecover{
+	width: 500px;
+	height: 220px;
+	top: 20%;
+	left: 30%;
+}
+#formularioEdit{
+	width: 500px;
+	height: 650px;
+	top: 5%;
+	left: 30%;
+}
+.formularios{
+	background: rgb(201, 201, 201);
 	position: absolute;
 	margin: auto;
 	z-index: 999999;
-	top: 20%;
-	left: 30%;
 	box-sizing: border-box;
 	padding: 45px;
 	-webkit-transition: all .5s;
@@ -324,6 +344,18 @@ canvas{
 	transition: all .5s;
 	box-shadow: 0 0 5px rgba(0,0,0,.4);
 }
+#formularioEdit>ul>li>img{
+	width: 300px;
+	height: 180px;
+	margin: 5px 0;
+	margin-bottom: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	box-shadow: 0 0 3px rgba(0,0,0,.5);
+}
+#formularioRecover>ul>li,
+#formularioEdit>ul>li,
+#formularioReg>ul>li,
 #formularioLog>ul>li{
 	list-style: none;
 	padding: 5px;
@@ -332,6 +364,9 @@ canvas{
 	font-family: arial;
 	text-align: center;
 }
+#formularioRecover>ul>li>input,
+#formularioEdit>ul>li>input,
+#formularioReg>ul>li>input,
 #formularioLog>ul>li>input{
 	padding: 5px 8px;
 	border: 0;
@@ -353,6 +388,9 @@ canvas{
 #formularioLog>ul>li>a:hover{
 	color: rgba(52, 60, 69,.7);
 }
+#formularioRecover>ul>li>button,
+#formularioEdit>ul>li>button,
+#formularioReg>ul>li>button,
 #formularioLog>ul>li>button{
 	border: 0;
 	border-radius: 5px;

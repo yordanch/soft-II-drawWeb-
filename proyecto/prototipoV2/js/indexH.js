@@ -1,5 +1,10 @@
-function ingresarSaUser(){
-	Cargar('ventanas/logeo.html','flotante');
+function ingresarSaUser(tipo){
+	switch(tipo){
+		case 'logeo': Cargar('ventanas/logeo.html','flotante'); break;
+		case 'registro': Cargar('ventanas/register.html','flotante'); break;
+		case 'edit': Cargar('ventanas/editUser.php','flotante'); break;
+		case 'recover': Cargar('ventanas/recuperarContra.php','flotante'); break;
+	}
 	flotante('show');
 }
 function cerrarForm(){
