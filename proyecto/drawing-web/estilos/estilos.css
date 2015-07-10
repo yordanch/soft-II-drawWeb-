@@ -80,7 +80,7 @@ canvas{
 	border-radius: 50%;
 }
 #barraHerramientas li#verHecho{
-	background: url('../imagenes/logos/album.png') 100% 100% / 100% 100% no-repeat;
+	background: url('../imagenes/logos/photo.png') 100% 100% / 100% 100% no-repeat;
 	background-color: rgb(238, 238, 238);
 	border-radius: 50%;
 }
@@ -272,7 +272,7 @@ canvas{
 	text-shadow: 0 0 5px #000;
 }
 #barraPrincipal>ul>li#cerrarSecion{
-	background: url('../imagenes/logos/close_secion.png') 100% 10% / 100% 100% no-repeat rgb(238, 238, 238);
+	background: url('../imagenes/logos/logout.png') 100% 10% / 100% 100% no-repeat rgb(238, 238, 238);
 }
 #barraPrincipal>ul>li#user{
 	width: auto;
