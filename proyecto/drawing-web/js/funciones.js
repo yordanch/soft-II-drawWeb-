@@ -293,3 +293,32 @@ function verTrab(){
 	window.open(data,'_blank');
 	//console.log(data);
 }
+function logeo(){
+	var usuarioL=document.getElementById('usuario').value;
+	var contrasena=document.getElementById('contrasena').value;
+	logeoWait('php/ingresar.php?tipo=logeo&usuario=' + usuarioL + '&contrasena=' + contrasena,'campoRPTA');
+}
+function logeoWait(pagina, campo){
+	var ajax=new XMLHttpRequest();
+	ajax.open('POST',pagina,true);
+	ajax.onreadystatechange=function(){
+		if(ajax.readyState<4){
+			document.getElementById('loadF').innerHTML='<div id="circleLoad"></div>';
+			document.getElementById('loadF').className="show";
+		}
+		if(ajax.readyState==4){
+			if(ajax.responseText=="usuarioEncontrado"){
+				document.getElementById(campo).innerHTML="<a id='entrarYa' href='php/../'></a>";
+			}
+			validarLog(ajax.responseText);
+		}
+	}
+	ajax.send(null);
+}
+function validarLog(respuesta){
+	if(respuesta=="usuarioEncontrado"){
+		document.getElementById('entrarYa').click();
+	}else{
+		document.getElementById('loadF').innerHTML='<div id="respuestaL" onclick="ingresarSaUser(\'logeo\')">' + respuesta + "</div>";
+	}
+}
