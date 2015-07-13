@@ -19,13 +19,19 @@ function inicio() {
 		posicionY: 10
 	}
 	if(document.getElementById('campoDraw')){
-		drawW.forma.circuloR=document.getElementById('tamVal').value;
+		drawW.forma.circuloR = document.getElementById('tamVal').value;
 		dubujoCamenzar();
 		window.onresize=Tamanio;
 		var colorC=document.getElementById('col');
 		var tamV=document.getElementById('tamVal');
 		colorC.addEventListener("change",cargarCol,false);
 		tamV.addEventListener("change",cargarTamanio,false);
+	}
+	if(localStorage.getItem("userDrag")){
+		document.getElementById('holaDrag').innerHTML='<li id="cerrarSecion" title="cerrar cesion" onclick="closeSession()"></li><li id="img" onclick="ingresarSaUser(\'edit\')"></li><li id="user">user</li><div class="clear"></div>';
+		cargarDatImagenUser()
+	}else{
+		document.getElementById('holaDrag').innerHTML='<li id="logeo" onclick="ingresarSaUser(\'logeo\')" title="logearse"></li><li id="nuevoU" onclick="ingresarSaUser(\'registro\')" title="registrar usuario"></li>';
 	}
 }
 function dibujarCanvas(){
@@ -259,7 +265,11 @@ function guardarTrab(){
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 	  if (xhr.readyState == 4) {
-		//window.open('save/snd-yvv/'+xhr.responseText,'_blank');
+		if(localStorage.getItem("userDrag")){
+			var arregloDatos=localStorage.getItem("userDrag").split(':');
+			Cargar('php/saveImage.php?typeIm=cargaDB&nombreUs='+arregloDatos[0]+'&nombreImg='+xhr.responseText,'flotante');
+			flotante('show');
+		}
 	  }
 	}
 	xhr.open('POST','php/saveImage.php',true);
@@ -317,7 +327,7 @@ function logeoWait(pagina, campo){
 }
 function validarLog(respuesta){
 	if(respuesta=="usuarioEncontrado"){
-		document.getElementById('entrarYa').click();
+		userSelect();
 	}else{
 		document.getElementById('loadF').innerHTML='<div id="respuestaL" onclick="ingresarSaUser(\'logeo\')">' + respuesta + "</div>";
 	}

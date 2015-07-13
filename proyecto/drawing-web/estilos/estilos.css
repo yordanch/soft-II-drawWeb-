@@ -65,6 +65,7 @@ canvas{
 }
 #barraHerramientas li#Guardar{
 	background: url('../imagenes/logos/guardar.png') 100% 100% / 100% 100% no-repeat;
+	display: none;
 }
 #barraHerramientas li#Nuevo{
 	background: url('../imagenes/logos/nuevo.png') 100% 100% / 100% 100% no-repeat;
@@ -83,6 +84,7 @@ canvas{
 	background: url('../imagenes/logos/photo.png') 100% 100% / 100% 100% no-repeat;
 	background-color: rgb(238, 238, 238);
 	border-radius: 50%;
+	display: none;
 }
 #materiales, #canvasImprim{
 	float: left;
@@ -273,6 +275,7 @@ canvas{
 }
 #barraPrincipal>ul>li#cerrarSecion{
 	background: url('../imagenes/logos/logout.png') 100% 10% / 100% 100% no-repeat rgb(238, 238, 238);
+	margin-right: 10px;
 }
 #barraPrincipal>ul>li#user{
 	width: auto;

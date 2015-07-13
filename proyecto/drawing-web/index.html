@@ -12,14 +12,7 @@
 <body>
 	<section id="CampoDibujo">
 		<header id="barraPrincipal">
-			<ul>
-				<li id="logeo" onclick="ingresarSaUser('logeo')" title="logearse"></li>
-				<li id="cerrarSecion" title="cerrar cesion"></li>
-				<li id="nuevoU" onclick="ingresarSaUser('registro')" title="registrar usuario"></li>
-				<li id="img" onclick="ingresarSaUser('edit')"></li>
-				<li id="user">snd-yvv</li>
-				<div class="clear"></div>
-			</ul>
+			<ul id="holaDrag"></ul>
 			<div class="clear"></div>
 		</header>
 		<div id="campoDraw">
@@ -30,7 +23,7 @@
 					<li id="Nuevo" onclick="newCanvasL()"></li>
 					<li id="Reacer"></li>
 					<li id="Adelante"></li>
-					<li id="verHecho" onclick="javascript:document.getElementById('holaHome').click()"><a id="holaHome" href="ventanas/home.php"></a></li>
+					<li id="verHecho" onclick="javascript:document.getElementById('holaHome').click()"></li>
 					<div class="clear"></div>
 				</ul>
 				<div class="clear"></div>
@@ -65,4 +58,9 @@
 	</section>
 	<div id="flotante" class="hidden"></div>
 </body>
+<script>
+	if(localStorage.getItem("userDrag")){
+		//cargarImagenUser();
+	}
+</script>
 </html>

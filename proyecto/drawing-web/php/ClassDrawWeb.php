@@ -20,6 +20,11 @@
 			$this->consultaDB=mysql_query($consultaTEXT) or die('ya existe usuario');
 			
 		}
+		function datoUser(){
+			$consultaTEXT='CALL datosUser("'.$this->usuario.'");';
+			$this->consultaDB=mysql_query($consultaTEXT) or die('usuario no existe');
+			$this->resultado=mysql_num_rows($this->consultaDB) or die("lo sentimos, esta cuenta no existe");
+		}
 		function recuperar(){}
 		function edit(){}
 		

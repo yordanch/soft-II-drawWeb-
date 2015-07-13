@@ -20,6 +20,8 @@
 			while($resultado=mysql_fetch_assoc($dw->getConsultaDB())){
 				echo "usuarioEncontrado";
 			}
+			session_start();
+			$_SESSION['USUARIO']=$dw->getUsuario();
 		}
 	}
 	//$dw->registerUser();
