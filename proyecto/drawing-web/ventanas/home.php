@@ -7,16 +7,33 @@
 	<link rel="stylesheet" href="../estilos/homeStyles.css">
 	<link rel="icon" href="../imagenes/logos/logo.png">
 	<script src="../js/funciones.js"></script>
+	<script src="../js/indexH.js"></script>
 </head>
 <body>
+	<?php
+		require_once('../php/ClassDrawWeb.php');
+		$DW=new Drawing();
+		$DW->coneccion();
+		if(isset($_GET['userDra'])){
+			$DW->setUsuario($_GET['userDra']);
+			$DW->datoUser();
+			$imagen=mysql_result($DW->getConsultaDB(),0,'imagen');
+			if($imagen=="avatar.PNG"){
+				$imagen="../imagenes/users/".$imagen;
+			}else{
+				$imagen="../imagenes/users/".$DW->getUsuario()."/".$imagen;
+			}
+		}else{
+			header('location:../');
+			//mysql_result($DW->getConsultaDB(),0,'usuario')."/"
+		}
+	?>
 	<section id="CampoDibujo" style="height: auto; margin-bottom: 20px;">
 		<header id="barraPrincipal">
 			<ul>
-				<li id="logeo"></li>
-				<li id="cerrarSecion"></li>
-				<li id="nuevoU"></li>
-				<li id="img"></li>
-				<li id="user">snd-yvv</li>
+				<li id="cerrarSecion" onclick="closeAll()"></li>
+				<li id="img" style="background-image: url('<?php echo $imagen;?>')"></li>
+				<li id="user"><?php echo mysql_result($DW->getConsultaDB(),0,'nombre');?></li>
 				<li id="verHechoI" onclick="javascript:document.getElementById('holaHome').click()"><a id="holaHome" href="../"></a></li>
 				<div class="clear"></div>
 			</ul>
@@ -232,5 +249,25 @@
 		</section>
 	</section>
 	<div id="flotante" class="hidden"></div>
+	<div id="resultadosExecute"></div>
+    <script>
+		if(!localStorage.getItem('userDrag')){
+			var resultadosExecute=document.getElementById('resultadosExecute');
+			var tag=document.createElement('a');
+			tag.href="../";
+			resultadosExecute.appendChild(tag);
+			tag.click();
+		}
+		function closeAll(){
+			localStorage.removeItem("userDrag");
+			if(!localStorage.getItem('userDrag')){
+				var resultadosExecute=document.getElementById('resultadosExecute');
+				var tag=document.createElement('a');
+				tag.href="../";
+				resultadosExecute.appendChild(tag);
+				tag.click();
+			}
+		}
+    </script>
 </body>
 </html>

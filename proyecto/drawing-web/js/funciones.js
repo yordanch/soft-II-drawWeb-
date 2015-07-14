@@ -28,10 +28,14 @@ function inicio() {
 		tamV.addEventListener("change",cargarTamanio,false);
 	}
 	if(localStorage.getItem("userDrag")){
-		document.getElementById('holaDrag').innerHTML='<li id="cerrarSecion" title="cerrar cesion" onclick="closeSession()"></li><li id="img" onclick="ingresarSaUser(\'edit\')"></li><li id="user">user</li><div class="clear"></div>';
-		cargarDatImagenUser()
+		if(document.getElementById('holaDrag')){
+			document.getElementById('holaDrag').innerHTML='<li id="cerrarSecion" title="cerrar cesion" onclick="closeSession()"></li><li id="img" onclick="ingresarSaUser(\'edit\')"></li><li id="user">user</li><div class="clear"></div>';
+			cargarDatImagenUser();
+		}
 	}else{
-		document.getElementById('holaDrag').innerHTML='<li id="logeo" onclick="ingresarSaUser(\'logeo\')" title="logearse"></li><li id="nuevoU" onclick="ingresarSaUser(\'registro\')" title="registrar usuario"></li>';
+		if(document.getElementById('holaDrag')){
+			document.getElementById('holaDrag').innerHTML='<li id="logeo" onclick="ingresarSaUser(\'logeo\')" title="logearse"></li><li id="nuevoU" onclick="ingresarSaUser(\'registro\')" title="registrar usuario"></li>';
+		}
 	}
 }
 function dibujarCanvas(){
@@ -269,6 +273,14 @@ function guardarTrab(){
 			var arregloDatos=localStorage.getItem("userDrag").split(':');
 			Cargar('php/saveImage.php?typeIm=cargaDB&nombreUs='+arregloDatos[0]+'&nombreImg='+xhr.responseText,'flotante');
 			flotante('show');
+			intervalo=setTimeout(function(){
+				flotante('hidden');
+				subIntervalo=setTimeout(function(){
+					document.getElementById('flotante').innerHTML="";
+					clearInterval(subIntervalo);
+				},500);
+				clearInterval(intervalo);
+			},1500);
 		}
 	  }
 	}

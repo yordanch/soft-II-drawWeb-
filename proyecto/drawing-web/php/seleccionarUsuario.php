@@ -8,7 +8,13 @@
 			$DW->setUsuario($_SESSION['USUARIO']);
 			$DW->datoUser();
 			
-			echo $_SESSION['USUARIO'].":".mysql_result($DW->getConsultaDB(),0,'nombre').":".mysql_result($DW->getConsultaDB(),0,'imagen');
+			if(mysql_result($DW->getConsultaDB(),0,'nombre')=="" || mysql_result($DW->getConsultaDB(),0,'nombre')==" "){
+				$resultadoConN='-';
+			}
+			else{
+				$resultadoConN=mysql_result($DW->getConsultaDB(),0,'nombre');
+			}
+			echo $_SESSION['USUARIO'].":".$resultadoConN.":".mysql_result($DW->getConsultaDB(),0,'imagen');
 		}
 	}
 	session_destroy();

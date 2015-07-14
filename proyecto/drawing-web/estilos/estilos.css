@@ -579,6 +579,46 @@ canvas{
 	left: 0%;
 	bottom: -25%;
 }
+#showMMSResult{
+	margin: auto;
+	text-align: center;
+	width: 350px;
+	background: rgb(182, 185, 189);
+	color: rgb(119, 119, 119);
+	padding: 5px;
+	font-size: 1.5em;
+	box-sizing: border-box;
+	margin-top: 15%;
+	border-radius: 5px;
+	box-shadow: 0 0 3px rgb(20, 23, 26);
+}
+#resultRegister{
+	background: rgba(201, 201, 201,.8);
+	color: rgb(100, 100, 100);
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	font-size: 1.5em;
+	line-height: 1;
+	padding: 20px;
+	padding-top: 50px;
+	text-align: justify;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-ms-transition: all .5s;
+	transition: all .5s;
+}
+#resultRegister>div{
+	text-align: center;
+	width: 100%;
+	padding-top: 20px;
+}
+#resultRegister>div>img{
+	cursor: pointer;
+}
 .hiddenLo{
 	opacity: 0;
 	pointer-events: none;
