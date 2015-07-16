@@ -85,3 +85,11 @@ function cargarDatImagenUser(){
 		viewSavePro.innerHTML='<a id="holaHome" href="ventanas/home.php?userDra='+arregloDatos[0]+'"></a>';
 	}
 }
+function abrirFileImagenUplo(){
+	var fileImg=document.getElementById('imagenPersonal');
+	fileImg.click();
+	fileImg.onchange=function(e){
+		var filesImg=e.target.files[0];
+		console.log(filesImg.name);
+	};
+}

@@ -23,7 +23,8 @@
 		</li>
 		<li>
 			<label for="RContrasena">imagen</label><br>
-			<img src="imagenes/lines.jpg" alt="">
+            <input type="file" id="imagenPersonal" style="display:none">
+			<img src="imagenes/lines.jpg" alt="" onClick="abrirFileImagenUplo()">
 		</li>
 		<li>
 			<button id="ok">Guardar</button>

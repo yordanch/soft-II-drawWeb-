@@ -20,14 +20,13 @@
 			$this->consultaDB=mysql_query($consultaTEXT) or die('ya existe usuario');
 		}
 		function registerUserNewAdd(){
-			//$this->datoUser();
-			//if($this->resultado==1){
-				//echo "el usuario <span style='font-weight:bold'>".$this->usuario."</span> no fue registrado con exito, el error podria ser de que el usuario ya existe, para ello vuelva a intentarlo, click en la imagen.<div><img src='imagenes/logos/triste.png' onclick=\"ingresarSaUser('registro')\"></div>";
-			//}else{
-				$consultaTEXT='CALL `registroNU`("'.$this->usuario.'","'.$this->correo.'","'.$this->contrasena.'");';
-				$this->consultaDB=mysql_query($consultaTEXT) or die("el usuario <span style='font-weight:bold'>".$this->usuario."</span> no fue registrado con exito, el error podria ser de que el usuario ya existe, para ello vuelva a intentarlo, click en la imagen.<div><img src='imagenes/logos/triste.png' onclick=\"ingresarSaUser('registro')\"></div>");
-				echo "el usuario <span style='font-weight:bold'>".$this->usuario."</span> fue registrado con exito, ahora ya puedes disfrutar de los beneficios que te ofrece la pagina, para ello click en la imagen o click en el boton salir.<div><img src='imagenes/logos/feliz.png' onclick=\"ingresarSaUser('logeo')\"></div>";
-			//}
+			$consultaTEXT='CALL `registroNU`("'.$this->usuario.'","'.$this->correo.'","'.$this->contrasena.'");';
+			$this->consultaDB=mysql_query($consultaTEXT) or die("no se pudo realizar la consulta");
+		}
+		function existenciaUser(){
+			$consultaTEXT='SELECT buscarUsuario("'.$this->usuario.'") AS SINO;';
+			$this->consultaDB=mysql_query($consultaTEXT);
+			$this->resultado=mysql_result($this->consultaDB,0,"SINO");
 		}
 		function datoUser(){
 			$consultaTEXT='CALL datosUser("'.$this->usuario.'");';
