@@ -24,7 +24,7 @@
 			$this->consultaDB=mysql_query($consultaTEXT) or die("no se pudo realizar la consulta");
 		}
 		function existenciaUser(){
-			$consultaTEXT='SELECT buscarUsuario("'.$this->usuario.'") AS SINO;';
+			$consultaTEXT='SELECT buscarUsuario("'.$this->usuario.'") AS "SINO";';
 			$this->consultaDB=mysql_query($consultaTEXT);
 			$this->resultado=mysql_result($this->consultaDB,0,"SINO");
 		}

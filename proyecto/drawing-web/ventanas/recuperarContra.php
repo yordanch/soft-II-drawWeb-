@@ -1,4 +1,4 @@
-<form action="" method="" id="formularioRecover" class="formularios">
+<form action="javascript:recuperarContra()" method="" id="formularioRecover" class="formularios">
 	<div onclick="cerrarForm()" id="closeForm"></div>
 	<ul>
 		<li>

@@ -1,8 +1,14 @@
 function ingresarSaUser(tipo){
+	var accionFrom="index";
+	var user="";
+	if(localStorage.getItem("userDrag")){
+		user=localStorage.getItem("userDrag").split(':');
+		user=user[0];
+	}
 	switch(tipo){
 		case 'logeo': Cargar('ventanas/logeo.html','flotante'); break;
 		case 'registro': Cargar('ventanas/register.html','flotante'); break;
-		case 'edit': Cargar('ventanas/editUser.php','flotante'); break;
+		case 'edit': Cargar('ventanas/editUser.php?usuario='+user+'&accion='+accionFrom,'flotante'); break;
 		case 'recover': Cargar('ventanas/recuperarContra.php','flotante'); break;
 	}
 	flotante('show');
@@ -26,6 +32,22 @@ function userSelect(){
 			if(respuestaAJX.responseText!="" || respuestaAJX.responseText!=" "){
 				localStorage.setItem('userDrag',respuestaAJX.responseText);
 				document.getElementById('entrarYa').click();
+			}
+		}
+	}
+	respuestaAJX.send(null);
+}
+function recuperarContra(){
+	var correo=document.getElementById('correo');
+	alert(correo.value);
+	var respuestaAJX = new XMLHttpRequest();
+	var url='php/saveImage.php?lostPass=hola&correo='+correo.value;
+	respuestaAJX.open('POST',url,true);
+	respuestaAJX.onreadystatechange=function(){
+		if(respuestaAJX.readyState==4){
+			if(respuestaAJX.responseText!="" || respuestaAJX.responseText!=" "){
+				//localStorage.setItem('userDrag',respuestaAJX.responseText);
+				//document.getElementById('entrarYa').click();
 			}
 		}
 	}
