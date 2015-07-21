@@ -9,3 +9,7 @@ OBSERVACIONES SEGUNDA ENTREGA
 - Muy bien, pero curiosamente tus estadisticas muestran que has elminiado más lineas de las que has agregado, osea que tu proyeto se está reduciendo NO ES NORMAL VERDAD?
 - Si quieres hacer pruebas hazlas en un branch y cuando este ok, recien le haces merge a tu master (si quieres tambien puedes hacer pull de las ramas para ver como trabajas)
 SIGUE ADELANTE
+
+Observaciones tercera entrega
+----------------------------------------------------------------
+- Esta bien la frecuencia de commits, pero los commits es mejor que tengan nombres significativos que describan lo que se  está implementando entre commits
