@@ -10,6 +10,7 @@
 	<script src="../js/indexH.js"></script>
 </head>
 <body>
+	<div id="wecomeH"></div>
 	<?php
 		require_once('../php/ClassDrawWeb.php');
 		$DW=new Drawing();
@@ -266,6 +267,20 @@
 				tag.href="../";
 				resultadosExecute.appendChild(tag);
 				tag.click();
+			}
+		}
+		if(localStorage.getItem("userDrag")){
+			var contenedor=document.getElementById('wecomeH');
+			var datos=localStorage.getItem("userDrag").split(':');
+			var url=window.location.href.slice(window.location.href.indexOf('?') + 1).split("=");
+			if(datos[0]==datos[3]){
+				contenedor.remove(this);
+			}
+			else if(datos[0]==url[1]){
+				contenedor.remove(this);
+			}
+			else{
+				document.getElementById('holaHome').click();
 			}
 		}
     </script>

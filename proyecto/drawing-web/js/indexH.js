@@ -10,8 +10,12 @@ function ingresarSaUser(tipo){
 		case 'registro': Cargar('ventanas/register.html','flotante'); break;
 		case 'edit': Cargar('ventanas/editUser.php?usuario='+user+'&accion='+accionFrom,'flotante'); break;
 		case 'recover': Cargar('ventanas/recuperarContra.php','flotante'); break;
+		case 'administrador': Cargar('ventanas/adimin.php','flotante'); break;
 	}
 	flotante('show');
+}
+function adminVal(valor){
+	alert(valor);
 }
 function cerrarForm(){
 	flotante('hidden');
@@ -114,4 +118,9 @@ function abrirFileImagenUplo(){
 		var filesImg=e.target.files[0];
 		console.log(filesImg.name);
 	};
+}
+function verDraw(){
+	
+}
+function desahabilitarU(){
 }

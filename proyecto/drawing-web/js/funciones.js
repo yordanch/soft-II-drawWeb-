@@ -28,7 +28,12 @@ function inicio() {
 		tamV.addEventListener("change",cargarTamanio,false);
 	}
 	if(localStorage.getItem("userDrag")){
-		if(document.getElementById('holaDrag')){
+		var usuarioAd=localStorage.getItem("userDrag").split(':');
+		if(usuarioAd[0]=="snd" && document.getElementById('holaDrag')){
+			document.getElementById('holaDrag').innerHTML='<li id="cerrarSecion" title="cerrar cesion" onclick="closeSession()"></li><li id="adminA" onclick="ingresarSaUser(\'administrador\')"></li><li id="img" onclick="ingresarSaUser(\'edit\')"></li><li id="user">user</li><div class="clear"></div>';
+			cargarDatImagenUser();
+		}
+		else if(document.getElementById('holaDrag') && usuarioAd[0]!="snd"){
 			document.getElementById('holaDrag').innerHTML='<li id="cerrarSecion" title="cerrar cesion" onclick="closeSession()"></li><li id="img" onclick="ingresarSaUser(\'edit\')"></li><li id="user">user</li><div class="clear"></div>';
 			cargarDatImagenUser();
 		}
